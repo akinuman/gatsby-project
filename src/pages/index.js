@@ -1,12 +1,14 @@
 import React, { useRef, useEffect} from "react"
 import Presentation from "../component/home/presentation"
+import Slogan from "../component/home/slogan"
 import { homeEnter } from "../component/transition/homeEnter"
+import WallToAbout from "../component/transition/wallToAbout"
+import WallToWorks from "../component/transition/wallToWorks"
 import { HomeContainer , HomeWrapper } from "../styles/homeStyles"
-
+import Layout from "./../component/layout"
 
 
 const IndexPage = () => {
-
   const homeContainer = useRef(null)
   const requestRef = useRef(null)
   const dataScroll = useRef({
@@ -15,6 +17,7 @@ const IndexPage = () => {
     previous: 0,
     rounded: 0,
   })
+
   const smoothScrolling = () => {
     dataScroll.current.actual = window.scrollY
     dataScroll.current.previous +=
@@ -36,12 +39,18 @@ const IndexPage = () => {
     }px`
   }
 
+
+  
+  
+ 
+
   const onResize = _ => {
     setBodyHeight()
   }
 
    //Effects Hooks
    useEffect(() => {
+    window.scrollTo(0, 0)
     homeEnter(homeContainer.current)
     setBodyHeight()
     requestRef.current = requestAnimationFrame(smoothScrolling)
@@ -54,15 +63,20 @@ const IndexPage = () => {
     }
     //eslint-disable-next-line
   }, [])
+  
 
   return (
     <>
-    <HomeWrapper className="globalContainer">
+    <Layout>
+      <WallToWorks />
+      <WallToAbout />
+      <HomeWrapper className="globalContainer">
       <HomeContainer className="home-container" ref={homeContainer}>
         <Presentation/>
+        <Slogan />
       </HomeContainer>
-        <div style={{height: 500}}></div>
     </HomeWrapper>
+    </Layout>
     </>
   )
 }

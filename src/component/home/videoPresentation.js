@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import typingVideo from "./../../images/typing.mp4";
 
+
 const VideoPresentation = () => {
   const blackWrapper = useRef(null);
 
@@ -12,11 +13,6 @@ const VideoPresentation = () => {
       opacity: 0,
       ease: "power3.out",
     });
-    // gsap.to(blackWrapper.current, {
-    //   duration: 1.5,
-    //   skewY: 400,
-    //   ease: "power3.out",
-    // })
   };
 
   return (
@@ -33,7 +29,8 @@ const VideoPresentation = () => {
           className="video-wrapper"
         ></video>
       </div>
-      <div className="black-wrapper" ref={blackWrapper}></div>
+      <div className="black-wrapper" ref={blackWrapper}>
+      </div>
     </>
   );
 };

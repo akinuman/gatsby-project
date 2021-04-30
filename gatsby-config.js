@@ -7,6 +7,17 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Poppins`
+        ],
+        display: 'swap'
+      }
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

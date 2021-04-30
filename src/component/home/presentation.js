@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { GlobalStyle, PresentationWrapper } from "../../styles/homeStyles";
+import { PresentationWrapper } from "../../styles/homeStyles";
 import VideoPresentation from "./videoPresentation";
 import gsap from "gsap"
 import { linearFunction } from "./../../helper/mathHelper"
+
 
 
 
@@ -21,7 +22,11 @@ const Presentation = () => {
 
   const handleScroll = () => {
     const position = window.pageYOffset;
-    setScrollPosition(position);
+    if(window.innerWidth < 800) {
+      setScrollPosition(position/2)
+    } else {
+      setScrollPosition(position);
+    }
   };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -75,11 +80,36 @@ const Presentation = () => {
   const firstBlock2 = useRef(null)
 
   useEffect(() => {
+    const wi = window.innerWidth
+    var withTheProgress = gsap.utils.mapRange(wi > 600 ? 0 : 0, wi > 600 ? 50 : 0, 0, 1)
+    var withTheProgress2 = gsap.utils.mapRange(wi > 600 ? 100 : 40, wi > 600 ? 150 : 80, 0, 1)
+    if(window.innerWidth > 600) {
+      if(scrollPosition > 80) {
+        gsap.set(firstBlock1.current, {
+          opacity: 0
+        })
+      } else {
+        gsap.set(firstBlock1.current, {
+          opacity: 1
+        })
+      }
+    }
+    if(scrollPosition < 85 && window.innerWidth < 800) {
+      gsap.set(firstBlock.current, { 
+        translateY: -scrollPosition + 7
 
-    var withTheProgress = gsap.utils.mapRange(0, 50, 0, 1)
-    var withTheProgress2 = gsap.utils.mapRange(0, 200, 0, 1)
+      })
+      gsap.set(firstBlock1.current, {   
+        translateY: -scrollPosition,
+        opacity: withTheProgress(scrollPosition)
+      })
+      gsap.set(firstBlock2.current, {   
+        translateY: -scrollPosition,
+        opacity: withTheProgress2(scrollPosition)
 
-    if(scrollPosition < 190) {
+      })
+    }
+    if(scrollPosition < 182 && window.innerWidth > 800) {
       gsap.set(firstBlock.current, { 
         translateY: -scrollPosition + 5
 
@@ -94,11 +124,21 @@ const Presentation = () => {
 
       })
     }
+    if(scrollPosition > 60) {
+      gsap.set(firstBlock.current, {
+        opacity: 0
+      })
+    } else {
+      gsap.set(firstBlock.current, {
+        opacity: 1
+      })
+    }
     
   }, [scrollPosition])
 
   return (
     <>
+      
       <PresentationWrapper className="presentation-wrapper">
         <div className="container" ref={containerRef}>
           <div className="title-name" ref={titleName}>
