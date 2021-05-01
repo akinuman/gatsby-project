@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 
 
@@ -377,6 +377,317 @@ export const SloganWrapper = styled.section`
       .logo-js {
         bottom: 35vw;
       }
+    }
+  }
+`
+const looping1 = keyframes`
+  0%{
+    transform: translate(-150%);
+  }
+
+  50% {
+    transform: translate(0%);
+
+  }
+
+  100%{
+    transform: translate(-150%);
+  }
+
+`
+
+const looping2 = keyframes`
+  0%{
+    transform: translate(-150%);
+  }
+
+  50% {
+    transform: translate(0%);
+
+  }
+  100%{
+    transform: translate(-150%);
+  }
+`
+
+const photoGravity = keyframes`
+  0%{
+    transform: translateY(10%);
+  }
+
+  50% {
+    transform: translateY(20%);
+
+  }
+
+  100%{
+    transform: translateY(10%);
+  }
+
+`
+
+export const BiographyWrapper = styled.section`
+  position: relative;
+  font-family: "Poppins";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: ${props => (props.toggle ? "#FFF" : "#000")};
+  transition: background-color cubic-bezier(0.2, 0, 0, 1) 1s;
+  .ticker-loop {
+    position: absolute;
+    height: 100%;
+    display: block;
+    width: 100%;
+    user-select: none;
+    .ticker-word {
+      position: absolute;
+      font-size: 8vw;
+      font-weight: 900;
+      width: 150%;
+      text-transform: uppercase;
+      padding: 3px 5px;
+      background: ${props => (props.toggle ? "#000" : "#FFF")};
+      color: ${props => (props.toggle ? "#FFF" : "#000")};
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      &.tw1 {
+        top: 45%;
+        left: -20%;
+        transform: rotateZ(-5deg) translateY(-50%);
+        transform-origin: left top;
+        span {
+          color: ${props =>
+            props.toggle ? "#f4dd1e" : "transparent"} !important;
+          -webkit-text-stroke: ${props =>
+            props.toggle ? "unset" : "2px #000"} !important;
+        }
+      }
+      &.tw2 {
+        top: 55%;
+        transform: rotateZ(1deg) translateY(-50%);
+        transform-origin: left top;
+        background: #f4dd1e;
+        color: #000;
+      }
+      .word-anim {
+        margin: 0;
+        white-space: nowrap;
+        > span {
+          color: transparent;
+          -webkit-text-stroke: 2px #000;
+        }
+      }
+    }
+    .wanim-1 {
+      animation: ${looping1} 70s ease-in-out infinite;
+    }
+    .wanim-2 {
+      animation: ${looping2} 45s ease-in-out infinite;
+    }
+  }
+  .photo-wrapper {
+    position: relative;
+    left: 0px;
+    width: 32.08vw;
+    transform-origin: 80% 90%;
+    transform: rotate(3deg);
+    transfrom: translateZ(-10px);
+    perspective: 100px;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+
+    .photo {
+      height: 500px;
+      opacity: 1 !important;
+      border-radius: inherit;
+
+      &:before {
+        border-radius: inherit;
+      }
+    }
+    .photohead-wrapper {
+      position: absolute !important;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      transform: translateZ(15px) scale(0.9);
+      .photohead {
+        position: absolute !important;
+        top: 80px;
+        left: 60px;
+        transform: rotate(-20deg);
+        // height: 100%;
+        // width: 100%;
+      }
+    }
+    @media (max-width: 1600px) {
+      .photohead-wrapper {
+        transform: translateZ(15px) scale(0.72);
+        .photohead {
+          position: absolute !important;
+          top: 80px;
+          left: 20px;
+          transform: rotate(-20deg);
+        }
+      }
+    }
+  }
+
+  .biography-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25.42vw;
+    transform: translate(13%, -16%) rotate(-3.39deg);
+    transform-origin: 50% 90%;
+    margin-top: 5vw;
+    margin-left: -2.78vw;
+    padding: 8.33vw 9.72vw 8.33vw 8.33vw;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    background-image: radial-gradient(
+      circle farthest-corner at -0.1% 100.8%,
+      rgba(0, 234, 255, 1) 0.2%,
+      rgba(0, 124, 255, 1) 59.1%,
+      rgba(198, 0, 255, 1) 100.2%
+    );
+    opacity: 1;
+    user-select: none;
+    .biography-res {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(
+        circle farthest-corner at -0.1% 100.8%,
+        rgba(0, 234, 255, 1) 0.2%,
+        rgba(0, 124, 255, 1) 59.1%,
+        rgba(198, 0, 255, 1) 100.2%
+      );
+      transform: skewY(-25deg);
+      z-index: -1;
+    }
+    h2 {
+      font-size: 2.78vw;
+      line-height: 2.5vw;
+      padding-right: 1.46vw;
+      margin-top: 0vw;
+    }
+    p {
+      font-size: 1.85vw;
+      line-height: 2.2vw;
+      padding: 1.39vw 2.08vw 2.08vw 0px;
+    }
+    .link-works-wrap {
+      padding: 1.39vw 0 2.08vw;
+
+      .link-works {
+        display: block;
+        background: transparent;
+        color: #fff;
+        font-size: 2.2vw;
+        font-weight: 700;
+        text-align: center;
+        border: none;
+        outline: none;
+        transition: -webkit-text-stroke-color cubic-bezier(0.2, 0, 0, 1) 1s;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    display: block;
+    .ticker-loop {
+      .ticker-word.tw1 {
+        top: 35%;
+      }
+      .ticker-word.tw2 {
+        top: 45%;
+      }
+    }
+    .photo-wrapper {
+      top: 15vw;
+      width: 45%;
+      z-index: 1;
+      .photo {
+        height: 400px;
+      }
+    }
+
+    .biography-wrapper {
+      width: 40%;
+      margin: -40% 0 0 35%;
+      z-index: 2;
+      h2 {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+      }
+      p {
+        font-size: initial;
+        line-height: initial;
+      }
+      .link-works {
+        font-size: 2rem;
+      }
+    }
+  }
+  @media (max-width: 650px) {
+    .ticker-loop {
+      display: none;
+    }
+
+    .photo-wrapper {
+      position: absolute;
+      top: -38%;
+      left: 80%;
+      width: 35vw;
+      height: 35vw;
+      margin: 0 0 0 -25%;
+      border-radius: 50%;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      z-index: 4;
+      animation: ${photoGravity} 5s ease-in-out infinite;
+
+      .photo {
+        height: inherit;
+        &:before {
+          background-position: 49% 35%;
+          background-size: 200%;
+        }
+      }
+      .photohead-wrapper {
+        display: none;
+      }
+    }
+    .biography-wrapper {
+      width: 100%;
+      transform: none !important;
+      margin: 0% 0 0 0;
+      box-sizing: border-box;
+      border-radius: unset;
+      background: ${props => (props.toggle ? "#FFF" : "#000")} !important;
+      .biography-res {
+        display: block;
+      }
+      h2 {
+        mix-blend-mode: difference;
+      }
+
+      p {
+        padding: 1.39vw 2.08vw 2.08vw;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .photo-wrapper {
+      top: -32vw;
+      /* left: 97%; */
     }
   }
 `

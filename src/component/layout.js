@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
+import { createGlobalStyle, ThemeProvider } from "styled-components"
 import Header from "./header"
 //Components
 
@@ -43,11 +43,11 @@ const theme = {
 }
 const Layout = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <Header />
         <GLobalStyle />
         <main>{children}</main>
-    </ThemeProvider>
+      </ThemeProvider>
   )
 }
 

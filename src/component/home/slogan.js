@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { StaticImage, getImage, GatsbyImage } from "gatsby-plugin-image"
-import BackgroundImage from "gatsby-background-image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { linearFunction } from "./../../helper/mathHelper";
 import { SloganWrapper } from "./../../styles/homeStyles";
 
