@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Biography from "../component/home/biography";
+import Contact from "../component/home/contact";
 import Presentation from "../component/home/presentation";
 import Slogan from "../component/home/slogan";
 import { homeEnter } from "../component/transition/homeEnter";
@@ -83,6 +84,7 @@ const IndexPage = () => {
               <Presentation />
               <Slogan />
               <Biography onCursor={onCursor} />
+              <Contact />
             </HomeContainer>
           </HomeWrapper>
         </Layout>

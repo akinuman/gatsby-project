@@ -5,10 +5,10 @@ import WallToAbout from "../component/transition/wallToAbout";
 import WallToHome from "../component/transition/wallToHome";
 
 const WorksPage = () => {
-//   const worksPage = useRef(null);
-//   useEffect(() => {
-//     worksEnter(worksPage.current);
-//   }, []);
+
+  
+
+
   return (
     <>
       <Layout>

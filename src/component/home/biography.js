@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const hShort = 650;
 const biographyText = biography;
-const toggle = true
+const toggle = true;
 
 export default function Biography({ onCursor }) {
   const scrollPhoto = useRef(null);
@@ -42,7 +42,6 @@ export default function Biography({ onCursor }) {
       tag="div"
       src="./../../images/ninja.svg"
       alt="mask"
-      
     >
       {props.children}
     </StaticImage>
@@ -109,10 +108,6 @@ export default function Biography({ onCursor }) {
       });
     }
   };
-
-  // useEffect(() => {
-  //   console.log(photoHead.current.selfRef)
-  // }, [])
 
   const hiddenRobotFace = (_) => {
     if (window.innerWidth > hShort) {
@@ -190,30 +185,43 @@ export default function Biography({ onCursor }) {
       </div>
       <div className="photo-wrapper">
         <GatsbyImage tag="div" alt="bodyBro" className="photo" image={photo} />
-            <div className="photohead-wrapper" ref={photoHeadWrapper}>
-              <div ref={photo_Head}>
-                <FancyImage />
-              </div>
-            </div>
+        <div className="photohead-wrapper" ref={photoHeadWrapper}>
+          <div ref={photo_Head}>
+            <FancyImage />
+          </div>
+        </div>
       </div>
       <div className="biography-wrapper">
         <div className="biography-res"></div>
         <h2>
           {biographyText.h2[0]} <b>Akın Uman</b>. {biographyText.h2[1]}{" "}
-          <span role="img" aria-label="rocketjs" style={{ fontSize: "4.5vw", marginLeft: 10, marginTop: 10 }}>
+          <span
+            role="img"
+            aria-label="rocketjs"
+            style={{ fontSize: "4.5vw", marginLeft: 10, marginTop: 10 }}
+          >
             🏂
           </span>
         </h2>
-        <p 
-              
-              >
-          {biographyText.p[0]} <b> React</b> & <b>Gatsby</b> & <b>React-Native</b>{" "}
-          {biographyText.p[1]}{" "}
-          <span role="img" aria-label="robotjs" style={{ fontSize: "2.5vw" }}>
-            🤖
-          </span>{" "}
-          {biographyText.p[2]}
-        </p>
+        <div
+          role="presentation"
+          onMouseEnter={(_) => {
+            onCursor("pointer");
+            hiddenRobotFace();
+          }}
+          onMouseLeave={(_) => {
+            onCursor();
+            showRobotFace();
+          }}>
+          <p>
+            {biographyText.p[0]} <b> React</b> & <b>Gatsby</b> &{" "}
+            <b>React-Native</b> {biographyText.p[1]}{" "}
+            <span role="img" aria-label="robotjs" style={{ fontSize: "2.5vw" }}>
+              🤖
+            </span>{" "}
+            {biographyText.p[2]}
+          </p>
+        </div>
         <TransitionLink
           to="/works/"
           exit={{
@@ -227,17 +235,15 @@ export default function Biography({ onCursor }) {
               worksEnter(node, e, exit, entry),
           }}
         >
-          <p className="link-works-wrap"
-            
-          >
+          <p className="link-works-wrap">
             <button
               className="link-works"
               onMouseEnter={(_) => {
-                onCursor("pointer")
+                onCursor("pointer");
                 hiddenRobotFace();
               }}
               onMouseLeave={(_) => {
-                onCursor()
+                onCursor();
                 showRobotFace();
               }}
             >
