@@ -1,13 +1,27 @@
-import React from "react"
+import React from "react";
+import { useGlobalDispatchContext } from "../context/globalContext";
 //Context
 //Transition
 //Styled Components
-import { NavWrapper, NavLink } from "./../styles/headerStyles"
+import { NavWrapper, NavLink } from "./../styles/headerStyles";
 //Data
-import { homeExit, homeEnter, aboutOtherExit, worksOtherExit, worksEnter  } from "./transition/homeEnter"
+import {
+  homeExit,
+  homeEnter,
+  aboutOtherExit,
+  worksOtherExit,
+  worksEnter,
+} from "./transition/homeEnter";
 
 const Navigation = () => {
-  
+  const globalDispath = useGlobalDispatchContext();
+
+  const pageChanger = (str) => {
+    globalDispath({
+      type: "CURRENT_PAGE",
+      payload: str,
+    });
+  };
 
   return (
     <NavWrapper>
@@ -21,8 +35,10 @@ const Navigation = () => {
             activeClassName="active"
             className="transition-link"
             exit={{
-              trigger: ({ node, e, exit, entry }) =>
-                homeExit(node, e, exit, entry),
+              trigger: ({ node, e, exit, entry }) => {
+                homeExit(node, e, exit, entry);
+                pageChanger("home");
+              },
               length: 1,
             }}
             entry={{
@@ -50,7 +66,8 @@ const Navigation = () => {
             entry={{
               delay: 1.45,
               trigger: ({ node, e, exit, entry }) =>
-                worksEnter(node, e, exit, entry),
+                {worksEnter(node, e, exit, entry)
+                pageChanger("works")},
             }}
           >
             WORKS
@@ -80,7 +97,7 @@ const Navigation = () => {
         </button>
       </div>
     </NavWrapper>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

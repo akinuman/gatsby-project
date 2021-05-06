@@ -1,14 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ContactWrapper } from "./../../styles/homeStyles";
 import Locate from "./locate";
-import AnimePresentation from "./canvas"
+import AnimePresentation from "./canvas";
 
 gsap.registerPlugin(ScrollTrigger);
 const toggle = true;
 
 export default function Contact() {
+
+  const [turnBox, setTurnBox] = useState(false)
+  const [ballNumber, setBallNumber] = useState(0)
+
   const scrollActive = useRef(null);
 
   const showInfo = (_) => {
@@ -65,12 +69,24 @@ export default function Contact() {
       scrollActive.current.kill();
     };
   }, []);
+  const onEnter = () => {
+    setTurnBox(true)
+    setBallNumber(25)
+  }
+  const onLeave = () => {
+    setTurnBox(false)
+    setBallNumber(0)
+  }
 
   return (
-    <ContactWrapper toggle={toggle}>
+    <ContactWrapper
+      onMouseEnter={() => onEnter()}
+      onMouseLeave={() => onLeave()}
+      toggle={toggle}
+    >
       <div className="iron-points-wrap">
         <Locate />
-        <AnimePresentation />
+        <AnimePresentation turnBox={turnBox} ballNumber={ballNumber} id="canvas-wrap" className="canvas-wrap" />
       </div>
     </ContactWrapper>
   );

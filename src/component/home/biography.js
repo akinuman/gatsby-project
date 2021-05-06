@@ -238,14 +238,6 @@ export default function Biography({ onCursor }) {
           <p className="link-works-wrap">
             <button
               className="link-works"
-              onMouseEnter={(_) => {
-                onCursor("pointer");
-                hiddenRobotFace();
-              }}
-              onMouseLeave={(_) => {
-                onCursor();
-                showRobotFace();
-              }}
             >
               {biographyText.button}
               <span role="img" aria-label="working">

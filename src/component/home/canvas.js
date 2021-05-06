@@ -6,7 +6,7 @@ import { Physics, useBox, usePlane, useSphere } from "@react-three/cannon";
 import niceColors from "nice-color-palettes";
 import TextureImage from "./../../images/carbon_normal.jpg";
 
-const AnimePresentation = () => {
+const AnimePresentation = (props) => {
   function Plane({ color, ...props }) {
     const [ref] = usePlane(() => ({ ...props }));
     return (
@@ -24,9 +24,11 @@ const AnimePresentation = () => {
       isKinematic: true,
     }));
     useFrame((state) => {
-      const t = state.clock.getElapsedTime();
-      api.position.set(Math.sin(t * 2) * 5, Math.cos(t * 2) * 5, 3);
-      api.rotation.set(Math.sin(t * 6), Math.cos(t * 6), 0);
+        const t = state.clock.getElapsedTime();
+      if(props.turnBox === true) {
+        api.rotation.set(Math.sin(t * 6), Math.cos(t * 6), 0);
+        api.position.set(Math.sin(t * 2) * 5, Math.cos(t * 2) * 5, 3);
+      } 
     });
     return (
       <mesh ref={ref} castShadow receiveShadow>
@@ -82,11 +84,10 @@ const AnimePresentation = () => {
       </instancedMesh>
     );
   }
+  
 
   return (
     <Canvas
-      id="canvas-wrap"
-      className="canvas-wrap"
       concurrent
       shadowMap
       sRGB
@@ -104,7 +105,7 @@ const AnimePresentation = () => {
         shadow-mapSize-height={256}
       />
       <pointLight position={[-30, 0, -30]} intensity={0.5} />
-      <Physics gravity={[0, 0, -10]}>
+      <Physics gravity={[0, 0, -30]}>
         <Plane color={niceColors[24][4]} />
         <Plane
           color={niceColors[24][1]}
@@ -128,7 +129,7 @@ const AnimePresentation = () => {
         />
         <Box />
         <Suspense fallback={null}>
-          <InstancedSpheres number={10} />
+          <InstancedSpheres number={props.ballNumber} />
         </Suspense>
       </Physics>
     </Canvas>

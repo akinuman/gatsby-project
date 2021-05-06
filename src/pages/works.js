@@ -1,22 +1,30 @@
-import React from "react";
-import styled from "styled-components";
+import React, {useEffect, useRef} from "react";
 import Layout from "../component/layout";
+import { worksEnter } from "../component/transition/homeEnter";
 import WallToAbout from "../component/transition/wallToAbout";
 import WallToHome from "../component/transition/wallToHome";
+import WorkMain from "../component/work/workMain";
+import { WorksProvider } from "../context/worksContext";
+import { WorksWrapper, HiddenPage } from "./../styles/worksStyle"
 
 const WorksPage = () => {
 
-  
-
+  const worksPage = useRef(null)
+  useEffect(() => {
+    worksEnter(worksPage.current)
+  }, [])
 
   return (
     <>
       <Layout>
         <WallToAbout />
         <WallToHome />
-        <WorksContainer>
-          <AboutMain />
-        </WorksContainer>
+        <WorksProvider>
+          <WorksWrapper className="globalContainer" ref={worksPage}>
+            <WorkMain />
+            <HiddenPage className="hidden-page" />  
+          </WorksWrapper>
+        </WorksProvider>
       </Layout>
     </>
   );
@@ -24,16 +32,4 @@ const WorksPage = () => {
 
 export default WorksPage;
 
-const WorksContainer = styled.div`
-  height: 100vh;
-  widht: 100vw;
-  background: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const AboutMain = styled.div`
-  height: 200px;
-  width: 250px;
-  background: yellow;
-`;
+

@@ -16,7 +16,7 @@ export const HeaderWrap = styled.header`
   box-sizing: border-box;
   mix-blend-mode: difference;
   z-index: 999;
-  transition: padding 1s ease-out;
+  // transition: padding 1s ease-out;
   @media (max-width: 350px) {
     padding: 0 10px;
   }
@@ -31,7 +31,7 @@ export const Logo = styled(TransitionLink)`
   text-transform: uppercase;
   user-select: none;
   text-decoration: none;
-  color: "#fff";
+  color: "#000";
   transition: font-size 1s ease-out;
   @media (max-width: 350px) {
     font-size: 2rem;

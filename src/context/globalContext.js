@@ -9,6 +9,7 @@ const defaultState = {
     drag: { style: "drag", text: "drag" },
   },
   isGreeted: false,
+  currentPage: "home",
 }
 
 const GlobalStateContext = createContext(defaultState)
@@ -21,7 +22,12 @@ const globalReducer = (state, action) => {
         ...state,
         currentSlide: action.payload,
       }
-
+    case "CURRENT_PAGE": {
+      return {
+        ...state,
+        currentPage: action.payload
+      }
+    }
     case "BLOCK_BUTTON":
       return {
         ...state,
@@ -63,6 +69,7 @@ export const GlobalProvider = ({ children }) => {
       drag: { style: "drag", text: "drag" },
     },
     isGreeted: false,
+    currentPage: "home"
   })
 
   return (

@@ -198,20 +198,48 @@ export const PresentationWrapper = styled.section`
         }
         
         .split-parag.block1 {
+          position: relative;
+          -webkit-text-stroke: 1.5px;
+          -webkit-text-stroke-color: black;
+          color: transparent;
           margin-top: 10px;
           opacity: 0;
           margin-left: 10px
         }
         .split-parag.block2 {
+          position: relative;
+      -webkit-text-stroke: 1.5px;
+      -webkit-text-stroke-color: black;
+      color: transparent;
           margin-top: 10px;
           opacity: 0;
           margin-left: 15px;
         }
       }
     }
-
-
-    
+  }
+  .social-wrapper {
+    position: absolute;
+    right: 5vw;
+    bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+  
+  
+    .social-item-link {
+      display: block;
+      padding: 10px;
+      font-weight: 900;
+      font-size: 18px;
+      color: black;
+      overflow: hidden;
+      svg {
+      transform: translateY(60px);
+      opacity: 0;
+      }
+    }
   }
 `
 
@@ -697,6 +725,7 @@ export const ContactWrapper = styled.section`
   margin: 0;
   background-color: ${props => (props.toggle ? "#FFF" : "#000")};
   transition: background-color cubic-bezier(0.2, 0, 0, 1) 1s;
+  font-family: "Poppins";
 
   .iron-points-wrap {
     position: relative;

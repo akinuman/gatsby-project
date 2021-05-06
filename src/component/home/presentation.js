@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { PresentationWrapper } from "../../styles/homeStyles";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa"
 import VideoPresentation from "./videoPresentation";
 import gsap from "gsap"
 import { linearFunction } from "./../../helper/mathHelper"
-
-
 
 
 const word1 = "Hi, I'm";
@@ -12,9 +11,6 @@ const word2 = "A";
 const word3 = "KIN";
 const word4 = "CODER";
 const word5 = "DESIGNER";
-
-
-
 
 const Presentation = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -160,6 +156,42 @@ const Presentation = () => {
             <VideoPresentation />
           </div>
         </div>
+        <div className="social-wrapper">
+        <a
+          className="social-item-link"
+          rel="noreferrer"
+          aria-label="Instagram"
+          target="_blank"
+          href="https://instagram.com/akinuman"
+          // onMouseEnter={_ => onCursor("pointer")}
+          // onMouseLeave={_ => onCursor()}
+        >
+          <FaInstagram />
+        </a>
+        <a
+          className="social-item-link"
+          rel="noreferrer"
+          aria-label="Linkedin"
+          target="_blank"
+          href="https://www.linkedin.com/in/ak%C4%B1n-y-uman-652479144/"
+          // onMouseEnter={_ => onCursor("pointer")}
+          // onMouseLeave={_ => onCursor()}
+        >
+          <FaLinkedin />
+        </a>
+
+        <a
+          className="social-item-link"
+          rel="noreferrer"
+          aria-label="Github"
+          target="_blank"
+          href="https://github.com/akinuman"
+          // onMouseEnter={_ => onCursor("pointer")}
+          // onMouseLeave={_ => onCursor()}
+        >
+          <FaGithub />
+        </a>
+      </div>
       </PresentationWrapper>
     </>
   );
