@@ -1,13 +1,13 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const WorksWrapper = styled.section`
   position: relative;
-`
+`;
 
 export const EnvoltWorks = styled.section`
   height: 100vh;
   overflow: hidden;
-`
+`;
 
 export const WrapperWork = styled.div`
   position: absolute;
@@ -18,7 +18,7 @@ export const WrapperWork = styled.div`
   @media (max-width: 1000px) {
     overflow: visible;
   }
-`
+`;
 
 export const ScrollWork = styled.div`
   position: relative;
@@ -28,11 +28,11 @@ export const ScrollWork = styled.div`
   @media (max-width: 1000px) {
     height: auto !important;
   }
-`
+`;
 
 export const WrapperTitleBack = styled.h1`
   position: absolute;
-  left: ${props => props.left};
+  left: ${(props) => props.left};
   margin: 45vh 0 0 0;
   font-size: 50vw;
   transform: translateY(-50%);
@@ -54,13 +54,13 @@ export const WrapperTitleBack = styled.h1`
   }
   @media (max-width: 1000px) {
     position: fixed;
-    left: ${props => `calc(${props.left} + 50vw)`};
+    left: ${(props) => `calc(${props.left} + 50vw)`};
     color: rgba(255, 255, 255, 0.2) !important;
     -webkit-text-stroke: unset;
     margin: 2vh 0 0 0;
     transform: none !important;
   }
-`
+`;
 export const HiddenPage = styled.div`
   position: absolute;
   top: 0;
@@ -69,7 +69,7 @@ export const HiddenPage = styled.div`
   height: 100%;
   background-color: #fff;
   z-index: 5;
-`
+`;
 
 export const WrapperInfo = styled.div`
   position: relative;
@@ -124,17 +124,17 @@ export const WrapperInfo = styled.div`
       margin-top: 0;
     }
   }
-`
+`;
 
 export const WrapperSlider = styled.div`
   position: fixed;
   top: 50%;
-  right: 5%;
-  height: 250px;
-  width: 40vw;
+  right: 15%;
+  //height: 250px;
+  //width: 40vw;
   transform: translateY(-50%);
   z-index: 4;
-  border-radius: 0px;
+  border-radius: 50px;
 
   .slider-size {
     width: inherit;
@@ -144,7 +144,7 @@ export const WrapperSlider = styled.div`
       position: relative;
       height: inherit;
       width: 100%;
-      perspective: 400px;
+      perspective: 700px;
       transform-style: preserve-3d;
       border-radius: inherit;
 
@@ -158,7 +158,6 @@ export const WrapperSlider = styled.div`
         transform-style: preserve-3d;
         opacity: 1;
         border-radius: inherit;
-        transition: 1s box-shadow ease-out;
 
         .slider-content {
           position: absolute;
@@ -203,7 +202,7 @@ export const WrapperSlider = styled.div`
             left: 0;
             width: 100%;
             height: 100%;
-            ${props => props.bgFill};
+            
           }
         }
 
@@ -225,15 +224,15 @@ export const WrapperSlider = styled.div`
             .bg-logo {
               position: absolute;
               height: 100%;
-              width: ${props => `${props.width}px` || "auto"};
-              ${props => props.scale};
+              width: ${(props) => `${props.width}px` || "auto"};
+              ${(props) => props.scale};
               background-size: contain !important;
               transform-origin: center center -500px;
               user-select: none;
               pointer-events: none;
               opacity: 0;
               @media (max-width: 650px) {
-                width: ${props => `calc(${props.width}px - 60px)` || "auto"};
+                width: ${(props) => `calc(${props.width}px - 60px)` || "auto"};
               }
               &:before,
               &:after {
@@ -265,7 +264,7 @@ export const WrapperSlider = styled.div`
     height: 25vw;
     margin: 50px auto 0;
   }
-`
+`;
 
 export const ContentInfo = styled.div`
   user-select: none;
@@ -406,7 +405,7 @@ export const ContentInfo = styled.div`
       }
     }
   }
-`
+`;
 
 export const InfoDescription = styled.div`
   position: relative;
@@ -447,7 +446,7 @@ export const InfoDescription = styled.div`
       font-size: 1.5rem !important;
     }
   }
-`
+`;
 
 export const WrapperChoise = styled.div`
   position: fixed;
@@ -504,7 +503,7 @@ export const WrapperChoise = styled.div`
       }
     }
   }
-`
+`;
 
 export const ArrowsWrap = styled.div`
   position: fixed;
@@ -512,7 +511,7 @@ export const ArrowsWrap = styled.div`
   bottom: 0;
   /* left: 50%; */
   left: 0;
-  display: ${props => (props.display ? props.display : "flex")};
+  display: ${(props) => (props.display ? props.display : "flex")};
   justify-content: space-evenly;
   align-items: center;
   box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.4);
@@ -543,5 +542,27 @@ export const ArrowsWrap = styled.div`
   }
   @media (max-width: 1000px) {
     display: none;
+  }
+`;
+export const ImageWrapper = styled.div`
+  position: relative;
+  width: 375px;
+  height: 812px;
+  position: relative;
+  &:hover {
+    cursor: pointer;
+  }
+  @media (max-width: 1200px) {
+    #honne-image {
+      transform: scale(0.75);
+    }
+  }
+  @media (max-width: 1000px) {
+    transform: scale(0.6);
+  }
+  canvas {
+    border-radius: 15px;
+    filter: brightness(85%);
+    box-shadow: 2.2px 2.2px 4px rgb(56, 56, 56);
   }
 `

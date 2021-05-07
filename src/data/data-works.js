@@ -10,7 +10,7 @@ export const pages = [
     year: "Developed in 1230",
     idLogo: 0,
     img: {
-      size: {width: 165, scale: 'transform: scale(1.3)'},
+      size: {width: 375, scale: 'transform: scale(1)'},
     },
     mainColor:"#E89924",
     slug: "cofounder",

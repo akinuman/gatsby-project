@@ -16,15 +16,15 @@ const Header = () => {
         ease: "power4.out",
       })
     }
-    return () => {
-      if(currentPage === "works") {
-        gsap.to(headerRef.current, {
-          duration: 1,
-          background: "none",
-          overwrite: true
-        })
-      }
-    }
+    // return () => {
+    //   if(currentPage === "works") {
+    //     gsap.to(headerRef.current, {
+    //       duration: 1,
+    //       background: "none",
+    //       overwrite: true
+    //     })
+    //   }
+    // }
    }, [currentPage])
   return (
     <HeaderWrap ref={headerRef}>

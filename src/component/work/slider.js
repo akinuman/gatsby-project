@@ -7,11 +7,12 @@ import {
   useWorksStateContext,
 } from "./../../context/worksContext.js"
 //Components
-import VideoSlider from "./videoSlider"
-import LogoSlider from "./logoSlider"
-import { linearFunction } from "../../helpers/mathHelpers"
+// import VideoSlider from "./videoSlider"
+// import LogoSlider from "./logoSlider"
+import { linearFunction } from "./../../helper/mathHelper"
 //Data
 import { wSmall } from "./../../data/data-responsive"
+import ImageSlider from "./imageSlider"
 
 const Slider = ({ img, id, idLogo, onCursor }) => {
   const { currentSlide, buttonBlocked, lengthSlide } = useWorksStateContext()
@@ -101,8 +102,6 @@ const Slider = ({ img, id, idLogo, onCursor }) => {
   const leaveHover = e => {
     const video = document.querySelector("video.video-wrapper")
     const logo = document.querySelector(".page-logo")
-    const sliderW = document.querySelector(".slider-wrapper")
-    sliderW.style.boxShadow = "-18px 10px 20px -12px rgba(0,0,0,0.5)"
 
     sliderWrapper.current &&
       video &&
@@ -130,7 +129,6 @@ const Slider = ({ img, id, idLogo, onCursor }) => {
     if (window.innerWidth > wSmall) {
       const logo = document.querySelector(".page-logo")
       const sliderW = document.querySelector(".slider-wrapper")
-      sliderW.style.boxShadow = "-25px 20px 20px -10px rgba(0, 0, 0, 0.7)"
 
       logo &&
         gsap.to(logo, {
@@ -148,7 +146,7 @@ const Slider = ({ img, id, idLogo, onCursor }) => {
       sliderComp.addEventListener("mousemove", handleRotateSlide)
       sliderComp.addEventListener("mouseenter", enterHover)
       sliderComp.addEventListener("mouseleave", leaveHover)
-    }, 2000)
+    }, 5000)
     return () => {
       sliderComp.removeEventListener("mousemove", handleRotateSlide)
       sliderComp.removeEventListener("mouseenter", enterHover)
@@ -172,11 +170,11 @@ const Slider = ({ img, id, idLogo, onCursor }) => {
       >
         <div className="slider-wrapper" ref={sliderWrapper}>
           <div className="slider-content">
-            <VideoSlider id={id} />
+            {/* <VideoSlider id={id} /> */}
             <div className="brightness"></div>
           </div>
           <div className="page-fill">
-            {img && <LogoSlider scale={img.scale} idLogo={idLogo} />}
+            <ImageSlider />
           </div>
           <div className="slider-tap"></div>
         </div>

@@ -11,7 +11,7 @@ import {
 import { useWorksStateContext } from "./../../context/worksContext"
 //Components
 import Info from "./info"
-//import Slider from "./slider"
+import Slider from "./slider"
 import TitleBack from "./titleBack"
 //Styled Components
 import {
@@ -155,9 +155,9 @@ export default function ParticularWork({ page }) {
         bgFill={bgFill}
         className="slider-w"
       >
-        {/* <Slider img={img} id={id} idLogo={idLogo} onCursor={onCursor} /> */}
+        <Slider img={img} id={id} idLogo={idLogo} onCursor={onCursor} />
       </WrapperSlider>
-      <ScrollWork className="container-W" ref={containerW}>
+          <ScrollWork className="container-W" ref={containerW}>
         <WrapperInfo>
           <Info onCursor={onCursor} page={page} />
         </WrapperInfo>

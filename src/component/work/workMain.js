@@ -24,18 +24,17 @@ export default function WorkMain() {
 
   const workDispatch = useWorksDispatchContext()
   const { currentSlide } = useWorksStateContext()
-  useEffect(() => {
-    console.log(currentSlide)
-  } ,[])
+  
   
   const onCursor = (entry = "hover") => {
     const style = cursorStyles[`${entry}`].style
     globalDispatch({ type: "CURSOR_TYPE", payload: style })
   }
+
   return (
     <EnvoltWorks>
       <ScrollProgress provide="works" />
-      {/* <WorksChoise onCursor={onCursor} pages={pages} /> */}
+      <WorksChoise onCursor={onCursor} pages={pages} />
       <TransitionGroup>
         {pages.map((page, index) => {
           if (currentSlide !== index) return null
