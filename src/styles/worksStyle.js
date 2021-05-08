@@ -128,8 +128,8 @@ export const WrapperInfo = styled.div`
 
 export const WrapperSlider = styled.div`
   position: fixed;
-  top: 50%;
-  right: 15%;
+  top: 58%;
+  right: 10%;
   //height: 250px;
   //width: 40vw;
   transform: translateY(-50%);
@@ -137,17 +137,12 @@ export const WrapperSlider = styled.div`
   border-radius: 50px;
 
   .slider-size {
-    width: inherit;
-    height: inherit;
     position: relative;
     .slider-comp {
       position: relative;
-      height: inherit;
-      width: 100%;
       perspective: 700px;
       transform-style: preserve-3d;
       border-radius: inherit;
-
       .slider-wrapper {
         position: relative;
         top: 0;
@@ -169,16 +164,13 @@ export const WrapperSlider = styled.div`
           border-radius: inherit;
 
           .video-wrapper {
-            position: absolute;
+            position: relative;
             height: 100%;
             width: 100%;
             overflow: hidden;
             .video-inner {
               position: relative;
               height: 100%;
-              video {
-                object-fit: cover;
-              }
               > div:nth-of-type(1) {
                 position: absolute;
                 top: -12.5%;
@@ -216,7 +208,7 @@ export const WrapperSlider = styled.div`
             top: 50%;
             left: 50%;
             height: 150px;
-            transform: translate3d(-50%, -50%, 0);
+            //transform: translate3d(-50%, -50%, 0);
             transform-style: preserve-3d;
             transform-origin: center;
 
@@ -230,7 +222,7 @@ export const WrapperSlider = styled.div`
               transform-origin: center center -500px;
               user-select: none;
               pointer-events: none;
-              opacity: 0;
+              //opacity: 0;
               @media (max-width: 650px) {
                 width: ${(props) => `calc(${props.width}px - 60px)` || "auto"};
               }
@@ -544,21 +536,19 @@ export const ArrowsWrap = styled.div`
     display: none;
   }
 `;
+
 export const ImageWrapper = styled.div`
   position: relative;
-  width: 375px;
-  height: 812px;
-  position: relative;
+  height: ${(props) => props.height}px;
+  width: ${(props) => props.width}px;
   &:hover {
     cursor: pointer;
   }
-  @media (max-width: 1200px) {
-    #honne-image {
-      transform: scale(0.75);
-    }
+  @media (max-width: 1600px) {
+    transform: scale(0.8);
   }
-  @media (max-width: 1000px) {
-    transform: scale(0.6);
+  @media (max-width: 1050px) {
+    display: none
   }
   canvas {
     border-radius: 15px;
@@ -566,3 +556,4 @@ export const ImageWrapper = styled.div`
     box-shadow: 2.2px 2.2px 4px rgb(56, 56, 56);
   }
 `
+

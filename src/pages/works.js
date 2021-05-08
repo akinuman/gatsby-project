@@ -13,7 +13,7 @@ const WorksPage = () => {
   useEffect(() => {
     worksEnter(worksPage.current)
   }, [])
-
+  console.log(window.innerWidth)
   return (
     <>
       <Layout>

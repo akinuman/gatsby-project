@@ -1,12 +1,12 @@
-import gsap from "gsap"
+import gsap from "gsap";
 
-export const sliderExit = node => {
-  const sliderComp = node.querySelector(".slider-comp")
-  const sliderW = node.querySelector(".slider-wrapper")
-  const video = node.querySelector("video.video-wrapper")
-  const bgLogo = node.querySelector(".bg-logo")
+export const sliderExit = (node) => {
+  const sliderComp = node.querySelector(".slider-comp");
+  const sliderW = node.querySelector(".slider-wrapper");
+  const video = node.querySelector("video.video-wrapper");
+  const bgLogo = node.querySelector(".bg-logo");
 
-  const sliderExit = gsap.timeline()
+  const sliderExit = gsap.timeline();
 
   bgLogo &&
     sliderExit.to(
@@ -17,7 +17,7 @@ export const sliderExit = node => {
         ease: "expo.out",
       },
       "leaveLogo"
-    )
+    );
 
   sliderW &&
     gsap.to(
@@ -31,7 +31,7 @@ export const sliderExit = node => {
         overwrite: true,
       },
       "leaveLogo"
-    )
+    );
 
   sliderComp &&
     sliderExit.to(
@@ -39,19 +39,20 @@ export const sliderExit = node => {
       {
         duration: 1,
         width: 0,
+        opacity: 0,
         overwrite: true,
         ease: "expo.out",
       },
-      "leaveLogo+=.5"
-    )
-}
+      "leaveLogo+=0.2"
+    );
+};
 
 export const sliderEnter = (node, worksDispatch) => {
-  const sliderComp = node.querySelector(".slider-comp")
-  const sliderW = node.querySelector(".slider-wrapper")
-  const bgLogo = node.querySelector(".bg-logo")
+  const sliderComp = node.querySelector(".slider-comp");
+  const sliderW = node.querySelector(".slider-wrapper");
+  const bgLogo = node.querySelector(".bg-logo");
 
-  const sliderEnter = gsap.timeline()
+  const sliderEnter = gsap.timeline();
 
   bgLogo &&
     sliderEnter.from(
@@ -62,7 +63,7 @@ export const sliderEnter = (node, worksDispatch) => {
         ease: "expo.out",
       },
       "entering+=1.8"
-    )
+    );
   sliderW &&
     sliderEnter.from(
       sliderW,
@@ -71,20 +72,21 @@ export const sliderEnter = (node, worksDispatch) => {
         boxShadow: "-18px 10px 20px -12px rgba(0,0,0,0.5)",
         ease: "expo.out",
       },
-      "entering+=1.8"
-    )
+      "entering+=0.2"
+    );
 
   sliderComp &&
     sliderEnter.fromTo(
       sliderComp,
       {
         duration: 1,
-        width: "0",
+        opacity: 0,
         overwrite: true,
         ease: "expo.out",
       },
       {
         duration: 1,
+        opacity: 1,
         width: "100%",
         overwrite: true,
         ease: "expo.out",
@@ -93,10 +95,10 @@ export const sliderEnter = (node, worksDispatch) => {
             worksDispatch({
               type: "BLOCK_BUTTON",
               payload: false,
-            })
-          }, 200)
+            });
+          }, 200);
         },
       },
-      "entering+=1.63" // add 0.13 plus that sliderExiting
-    )
-}
+      "entering+=1.93" // add 0.13 plus that sliderExiting
+    );
+};
