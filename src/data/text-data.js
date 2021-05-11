@@ -15,7 +15,9 @@ export const worksText = {
   particular: {
     cofounder: {
       developedIn: "Developed in 2020",
-      mainDes: "Mobile Application that We developed with React-Native for cross-platforms. The application provides geo-location-based communication and socialization opportunities for people, such as geo-location-based socialization, instant messaging, group chat tools, etc".split(" "),
+      mainDes: "Mobile Application that We developed with React-Native for cross-platforms. The application provides geo-location-based communication and socialization opportunities for people, such as geo-location-based socialization, instant messaging, group chat tools, etc".split(
+        " "
+      ),
       secunDes: "Our core app is written in React-Native and used Firebase for the database with it's all services such as authentication, real-time database, firestore etc. As of right now due to cost issues it's being transferred to AWS. For synched interaction between users Redux-Saga is used for state management. Lastly, Reanimated 2 for animations and Node.js for the backend has been used.".split(
         " "
       ),
@@ -30,4 +32,21 @@ export const worksText = {
       ),
     },
   },
+};
+export const aboutText = {
+  aboutInfo: {
+    stroke: "computer",
+    title: [
+      "I'm a",
+      "science",
+      "student at the Central",
+      "University of Venezuela",
+    ],
+    p: [
+      "I love interactive computer graphics and everything related to augmented and virtual reality.",
+      "I'm curious about math behind the animations, so I like to study it in my free time.",
+      "I like to do exercise outside and relax on the beach.",
+    ],
+  },
+  linkPdf: ["Download here", "my resume in", "format PDF"],
 };

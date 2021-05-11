@@ -1,6 +1,8 @@
 import gsap from "gsap"
 
 export const homeEnter = (node, e, exit, entry) => {
+    const logo = node.querySelector("Logo")
+    
     const videoWrap = node.querySelector(".wrapper-img")
     const socials = node.querySelectorAll(".social-item-link svg")
     const tl = gsap.timeline()
@@ -27,6 +29,7 @@ export const homeEnter = (node, e, exit, entry) => {
       },
       "unWrap+=1.5"
     )
+   
 }
 export const homeExit = (node, e, exit, entry) => {
   const walltohome = node.querySelector("#walltohome")
@@ -43,7 +46,6 @@ export const homeExit = (node, e, exit, entry) => {
 }
 export const aboutOtherExit = (node, e, exit, entry) => {
   const walltoabout = node.querySelector("#walltoabout")
-  
   const leaf = node.querySelectorAll(".leaf")
   const globalContainer = node.querySelector(".globalContainer")
   const tl = gsap.timeline()

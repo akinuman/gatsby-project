@@ -51,9 +51,10 @@ const IndexPage = () => {
   const onResize = (_) => {
     setBodyHeight();
   };
-
+  
   //Effects Hooks
   useEffect(() => {
+    
     window.scrollTo(0, 0);
     homeEnter(homeContainer.current);
     setBodyHeight();
@@ -72,7 +73,7 @@ const IndexPage = () => {
     const style = cursorStyles[`${entry}`].style
     globalDispatch({ type: "CURSOR_TYPE", payload: style })
   }
-  
+
 
   return (
     <>

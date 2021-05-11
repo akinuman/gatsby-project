@@ -153,95 +153,37 @@ export const WrapperSlider = styled.div`
         transform-style: preserve-3d;
         opacity: 1;
         border-radius: inherit;
+      }
+    }
+    .slider-tap {
+      position: absolute;
+      opacity: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      height: 50px;
+      width: 0%;
+      left: 95%;
+      top: 40%;
+      align-items: center;
+      background: white;
+      h3 {
+        font-family: "Poppins";
+        color: "#000";
+      }
 
-        .slider-content {
-          position: absolute;
-          top: 0;
-          right: 0;
-          height: 100%;
-          width: 100%;
-          overflow: hidden;
-          border-radius: inherit;
-
-          .video-wrapper {
-            position: relative;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            .video-inner {
-              position: relative;
-              height: 100%;
-              > div:nth-of-type(1) {
-                position: absolute;
-                top: -12.5%;
-                left: -13%;
-                /* right: 0; */
-                height: 125%;
-                width: 125% !important;
-                overflow: hidden;
-
-                > div {
-                  height: 100% !important;
-                  padding-top: 0 !important;
-                }
-              }
-            }
+      .emoji-move {
+        animation: leftright 2s infinite ease-in-out;
+        @keyframes leftright {
+          0% {
+            transform: translateX(0%);
           }
-
-          .path-fill {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            
+          50% {
+            transform: translateX(100%);
           }
-        }
-
-        .page-fill {
-          position: relative;
-          height: 100%;
-          overflow: visible;
-
-          .page-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 150px;
-            //transform: translate3d(-50%, -50%, 0);
-            transform-style: preserve-3d;
-            transform-origin: center;
-
-            img,
-            .bg-logo {
-              position: absolute;
-              height: 100%;
-              width: ${(props) => `${props.width}px` || "auto"};
-              ${(props) => props.scale};
-              background-size: contain !important;
-              transform-origin: center center -500px;
-              user-select: none;
-              pointer-events: none;
-              //opacity: 0;
-              @media (max-width: 650px) {
-                width: ${(props) => `calc(${props.width}px - 60px)` || "auto"};
-              }
-              &:before,
-              &:after {
-                background-size: contain !important;
-              }
-            }
+          100% {
+            transform: translateX(0%);
           }
-        }
-
-        .slider-tap {
-          display: none;
-          position: absolute;
-          height: 100%;
-          width: 0%;
-          top: 0;
-          left: 0;
-          background: white;
         }
       }
     }
@@ -322,7 +264,7 @@ export const ContentInfo = styled.div`
     margin: 0px 20% 0 35%;
     cursor: pointer;
 
-    a {
+    b {
       display: block;
       width: 100%;
       overflow: hidden;
@@ -544,16 +486,18 @@ export const ImageWrapper = styled.div`
   &:hover {
     cursor: pointer;
   }
-  @media (max-width: 1600px) {
-    transform: scale(0.8);
+  @media (max-width: 1800px) {
+    transform: scale(0.75);
+  }
+  @media (max-width: 1500px) {
+    transform: scale(0.6);
   }
   @media (max-width: 1050px) {
-    display: none
+    display: none;
   }
   canvas {
     border-radius: 15px;
     filter: brightness(85%);
     box-shadow: 2.2px 2.2px 4px rgb(56, 56, 56);
   }
-`
-
+`;

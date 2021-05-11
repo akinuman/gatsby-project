@@ -1,6 +1,7 @@
 import gsap from "gsap";
 
 export const sliderExit = (node) => {
+  
   const sliderComp = node.querySelector(".slider-comp");
   const sliderW = node.querySelector(".slider-wrapper");
   const video = node.querySelector("video.video-wrapper");

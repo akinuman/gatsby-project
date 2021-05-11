@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 //Context
 import InfoDescriptions from "./infoDescriptions"
 //Styled Components
@@ -35,12 +35,7 @@ const { mainDes, secunDes, developedIn } = particular[`${slug}`]
         </div>
         <InfoDescriptions description={mainDes} />
         <div className="language-info">
-          <a
-            onMouseEnter={() => onCursor("pointer")}
-            onMouseLeave={() => onCursor()}
-            href={src}
-            target="_blank"
-            rel="noreferrer"
+          <b
           >
             <span className="language click-anim  ud-p1">
               <span
@@ -60,7 +55,7 @@ const { mainDes, secunDes, developedIn } = particular[`${slug}`]
                 👈🏻
               </span>
             </span>
-          </a>
+          </b>
         </div>
         <InfoDescriptions description={secunDes} />
       </div>

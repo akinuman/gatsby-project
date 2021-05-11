@@ -1,5 +1,6 @@
-import React from "react";
-import { useGlobalDispatchContext } from "../context/globalContext";
+import gsap from "gsap/gsap-core";
+import React, { useEffect } from "react";
+import { useGlobalDispatchContext, useGlobalStateContext } from "../context/globalContext";
 //Context
 //Transition
 //Styled Components
@@ -11,10 +12,12 @@ import {
   aboutOtherExit,
   worksOtherExit,
   worksEnter,
+  aboutEnter,
 } from "./transition/homeEnter";
 
 const Navigation = () => {
   const globalDispath = useGlobalDispatchContext();
+  const {currentPage} = useGlobalStateContext()
 
   const pageChanger = (str) => {
     globalDispath({
@@ -22,6 +25,31 @@ const Navigation = () => {
       payload: str,
     });
   };
+  useEffect(() => {
+    const transitionLink = document.querySelectorAll(".transition-link")
+    if(currentPage === "about") {
+      gsap.to(transitionLink, {
+        duration: 1,
+        color: "#FFF",
+        ease: "power4.out",
+      })
+    }
+    if(currentPage === "works") {
+      gsap.to(transitionLink, {
+        duration: 1,
+        color: "#000",
+        ease: "power4.out",
+      })
+    }
+    if(currentPage === "home") {
+      gsap.to(transitionLink, {
+        duration: 1,
+        color: "#000",
+        ease: "power4.out",
+      })
+    }
+  }, [currentPage])
+  
 
   return (
     <NavWrapper>
@@ -44,7 +72,10 @@ const Navigation = () => {
             entry={{
               delay: 1,
               trigger: ({ node, e, exit, entry }) =>
-                homeEnter(node, e, exit, entry),
+                {
+                  homeEnter(node, e, exit, entry)
+                  
+                }
             }}
           >
             HOME
@@ -88,8 +119,11 @@ const Navigation = () => {
             }}
             entry={{
               delay: 2,
-              // trigger: ({ node, e, exit, entry }) =>
-              //   aboutEnter(node, e, exit, entry),
+              trigger: ({ node, e, exit, entry }) =>
+                {
+                  aboutEnter(node, e, exit, entry)
+                  pageChanger("about")
+                },
             }}
           >
             ABOUT
