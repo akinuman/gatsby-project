@@ -34,12 +34,6 @@ const globalReducer = (state, action) => {
         buttonBlocked: action.payload,
       }
 
-    case "CURSOR_TYPE": {
-      return {
-        ...state,
-        cursorType: action.payload,
-      }
-    }
 
     case "CONSOLE_GREET": {
       return {
@@ -47,12 +41,7 @@ const globalReducer = (state, action) => {
         isGreeted: true,
       }
     }
-    case "CHANGE_LANGUAGE": {
-      return {
-        ...state,
-        globalLanguage: action.payload,
-      }
-    }
+    
 
     default:
       return state

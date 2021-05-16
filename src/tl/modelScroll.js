@@ -1,5 +1,7 @@
 import gsap from "gsap"
 
+
+ 
 export const textEnter1 = node => {
   const aboutTitle = node.querySelectorAll(".about-info-line > div")
   const paragraph = node.querySelector(".about-info p")
@@ -21,30 +23,31 @@ export const textEnter1 = node => {
   })
 }
 
-export const ironEnter1 = (model, material, node) => {
-  if (model && material) {
+export const ironEnter1 = (model, node) => {
+  if (model) {
     gsap.to(model.position, {
       duration: 1.5,
-      x: 2.6,
-      y: -8.77,
-      z: -8.47,
+      x: 0.5,
+      y: -1.3,
+      z: -0.1,
       ease: "expo.inOut",
       overwrite: true,
     })
     gsap.to(model.rotation, {
       duration: 1.5,
-      x: 0.39,
-      y: -1.09,
+      x: 0,
+      y: -(Math.PI / 6),
+      z: (Math.PI / 72),
       ease: "expo.inOut",
       overwrite: true,
     })
-    gsap.to(material, {
-      duration: 1.5,
-      opacity: 1,
-      emissiveIntensity: 1,
-      ease: "expo.inOut",
-      overwrite: true,
-    })
+    // gsap.to(material, {
+    //   duration: 1.5,
+    //   opacity: 1,
+    //   emissiveIntensity: 1,
+    //   ease: "expo.inOut",
+    //   overwrite: true,
+    // })
   }
 }
 
@@ -67,52 +70,52 @@ export const textLeave1 = node => {
   })
 }
 
-export const ironLeave1 = (model, material, node) => {
-  if (model && material) {
+export const ironLeave1 = (model, node) => {
+  if (model) {
     gsap.to(model.position, {
       duration: 1.5,
       x: 0,
-      y: -10.5,
-      z: -5,
+      y: -1.4,
+      z: 0,
       ease: "expo.inOut",
       overwrite: true,
     })
     gsap.to(model.rotation, {
       duration: 1.5,
       x: 0,
-      y: 0,
+      y: Math.PI / 4,
       z: 0,
       ease: "expo.inOut",
       overwrite: true,
     })
 
-    gsap.to(material, {
-      duration: 1.5,
-      emissiveIntensity: 0,
-      ease: "expo.inOut",
-      overwrite: true,
-    })
+    // gsap.to(material, {
+    //   duration: 1.5,
+    //   emissiveIntensity: 0,
+    //   ease: "expo.inOut",
+    //   overwrite: true,
+    // })
   }
 }
 
-export const ironEnter2 = (model, material, node) => {
+export const ironEnter2 = (model, node) => {
   const durFirst = 1.5
-  if (model && material) {
+  if (model) {
     gsap.to(model.rotation, {
       duration: durFirst,
       delay: durFirst - 1,
-      x: 0.06,
-      y: -5,
-      z: 0.01,
+      x: 0,
+      y: 2.25 * (Math.PI),
+      z: 0,
       ease: "expo.inOut",
       overwrite: true,
     })
     gsap.to(model.position, {
       duration: 1.5,
       delay: durFirst,
-      x: -3.33,
-      y: -10.77,
-      z: -4,
+      x: -0.5,
+      y: -1.5,
+      z: -0.2,
       ease: "expo.inOut",
       overwrite: true,
     })

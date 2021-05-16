@@ -18,16 +18,16 @@ export const worksText = {
       mainDes: "Mobile Application that We developed with React-Native for cross-platforms. The application provides geo-location-based communication and socialization opportunities for people, such as geo-location-based socialization, instant messaging, group chat tools, etc".split(
         " "
       ),
-      secunDes: "Our core app is written in React-Native and used Firebase for the database with it's all services such as authentication, real-time database, firestore etc. As of right now due to cost issues it's being transferred to AWS. For synched interaction between users Redux-Saga is used for state management. Lastly, Reanimated 2 for animations and Node.js for the backend has been used.".split(
+      seconDes: "Our core app is written in React-Native and used Firebase for the database with it's all services such as authentication, real-time database, firestore etc. As of right now due to cost issues it's being transferred to AWS. For synched interaction between users Redux-Saga is used for state management. Lastly, Reanimated 2 for animations and Node.js for the backend has been used.".split(
         " "
       ),
     },
     loppyweb: {
       developedIn: "Developed in 2020",
-      mainDes: "Landing page that I developed for a multi-brand motorcycle workshop located in Madrid, Spain.".split(
+      mainDes: "Due to our website is on building-period I wanted to show what we have done so far, the design and components are created in Figma.".split(
         " "
       ),
-      secunDes: "I used Javascript Vanilla configuring it with Babel and Webpack. I used GSAP for the smooth transitions and used Node.js and Nodemailer for sending emails through the forms.".split(
+      seconDes: "For a new learning challenge I'm writing this website in TypeScript. The animations and transitions are written with frame-motion, GSAP ; 3d animations with Reaact-Three-Fiber. On completion the site will take it's place here.".split(
         " "
       ),
     },
@@ -35,17 +35,17 @@ export const worksText = {
 };
 export const aboutText = {
   aboutInfo: {
-    stroke: "computer",
+    stroke: "civil",
     title: [
-      "I'm a",
-      "science",
-      "student at the Central",
-      "University of Venezuela",
+      "I was a",
+      "engineer",
+      "student at the" ,
+      "Osmangazi University",
     ],
     p: [
-      "I love interactive computer graphics and everything related to augmented and virtual reality.",
-      "I'm curious about math behind the animations, so I like to study it in my free time.",
-      "I like to do exercise outside and relax on the beach.",
+      "1.5 year ago I've made the decision to teach myself coding and as I learnt and developed now I know it was the best decision I've ever made.",
+      "I love interactive computer graphics and everything related to animations,  I try to learn every animation framework as possible, this became my passion.",
+      "Also I am very curious about the math behind animations. If you have any questions about my journey, need help with your journey or for business inquiries you can always contact me.",
     ],
   },
   linkPdf: ["Download here", "my resume in", "format PDF"],

@@ -4,7 +4,7 @@ import { linearFunction } from "./../../helper/mathHelper"
 //Styled Componentes
 import { BlobWrapper } from "./../../styles/aboutStyles"
 
-const color = "#ffd700"
+const color = "#000000"
 // const limit = 200
 // const pow = 4
 // const force = 0.01
@@ -92,14 +92,16 @@ const Blobs = () => {
   }
 
   const onResizeBlob = _ => {
-    canvasblob.current.style.width = `${window.innerWidth}px`
-    canvasblob.current.style.height = `${window.innerHeight}px`
-    canvasblob.current.width = window.innerWidth * window.devicePixelRatio
-    canvasblob.current.height = window.innerHeight * window.devicePixelRatio
-    if (window.innerWidth > 650) {
-      init()
-    } else {
-      init("up")
+    if(canvasblob.current !== null) {
+      canvasblob.current.style.width = `${window.innerWidth}px`
+      canvasblob.current.style.height = `${window.innerHeight}px`
+      canvasblob.current.width = window.innerWidth * window.devicePixelRatio
+      canvasblob.current.height = window.innerHeight * window.devicePixelRatio
+      if (window.innerWidth > 650) {
+        init()
+      } else {
+        init("up")
+      }
     }
   }
 
@@ -113,9 +115,11 @@ const Blobs = () => {
     context.current.clearRect(
       0,
       0,
-      canvasblob.current.width,
-      canvasblob.current.height
+      canvasblob.current !== null ? canvasblob.current.width : null,
+      canvasblob.current !== null ?  canvasblob.current.height : null
+
     )
+
     blob.current.render(context.current)
     context.current.restore()
   }
@@ -141,7 +145,7 @@ const Blobs = () => {
   }
 
   useEffect(() => {
-    context.current = canvasblob.current.getContext("2d")
+    context.current = canvasblob.current !== null ? canvasblob.current.getContext("2d") : null
     onResizeBlob()
     animate()
     window.addEventListener("pointermove", actCoor)

@@ -71,14 +71,14 @@ export const GraphicWrapper = styled.div`
     .about-info {
       position: absolute;
       width: max-content;
-      top: 20%;
-      left: 11vw;
+      top: 18%;
+      left: 6vw;
       color: #fff;
-      padding: 3vw;
+      padding: 1vw;
       mix-blend-mode: difference;
 
       .about-info-line {
-        font-size: 3.5vw;
+        font-size: 3vw;
         font-weight: 800;
         text-transform: uppercase;
         overflow: hidden;
@@ -96,7 +96,7 @@ export const GraphicWrapper = styled.div`
       }
 
       p {
-        width: 40vw;
+        width: 55vw;
         transform: translateY(20px);
         opacity: 0;
         /* text-align: justify; */

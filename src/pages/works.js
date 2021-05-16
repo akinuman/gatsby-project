@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import Layout from "../component/layout";
+import SEO from "../component/seo";
 import { worksEnter } from "../component/transition/homeEnter";
 import WallToAbout from "../component/transition/wallToAbout";
 import WallToHome from "../component/transition/wallToHome";
 import WorkMain from "../component/work/workMain";
 import { useGlobalDispatchContext } from "../context/globalContext";
 import { WorksProvider } from "../context/worksContext";
+import { worksDescription } from "../data/data-seo";
 import { WorksWrapper, HiddenPage } from "./../styles/worksStyle";
 
 const WorksPage = () => {
@@ -25,6 +27,7 @@ const WorksPage = () => {
   }, []);
   return (
     <>
+      <SEO title="Works" description={worksDescription} pic={1}/>
       <Layout>
         <WallToAbout />
         <WallToHome />

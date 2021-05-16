@@ -10,12 +10,13 @@ const Header = () => {
   
    const headerRef = useRef(null)
    const logoRef = useRef(null)
+
   useEffect(() => {
-    console.log(currentPage)
+    
     if(currentPage === "works") {
       gsap.to(headerRef.current, {
         duration: 1,
-        background: "white",
+        background: "#253250",
         ease: "power4.out",
       })
       gsap.to(logoRef.current, {

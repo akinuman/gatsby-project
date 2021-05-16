@@ -8,10 +8,10 @@ import { worksText } from "./../../data/text-data"
 //Css
 //import "./scrollbar.css"
 
-const Info = ({ page, onCursor }) => {
-  const { title, slug, mainColor, src } = page
+const Info = ({ page }) => {
+  const { title, slug, mainColor } = page
   const { particular, enterHere } = worksText
-const { mainDes, secunDes, developedIn } = particular[`${slug}`]
+const { mainDes, seconDes, developedIn } = particular[`${slug}`]
 
   return ( 
     <ContentInfo className="content-info">
@@ -57,7 +57,7 @@ const { mainDes, secunDes, developedIn } = particular[`${slug}`]
             </span>
           </b>
         </div>
-        <InfoDescriptions description={secunDes} />
+        <InfoDescriptions description={seconDes} />
       </div>
     </ContentInfo>
   )

@@ -3,6 +3,7 @@ import Biography from "../component/home/biography";
 import Contact from "../component/home/contact";
 import Presentation from "../component/home/presentation";
 import Slogan from "../component/home/slogan";
+import SEO from "../component/seo";
 import { homeEnter } from "../component/transition/homeEnter";
 import WallToAbout from "../component/transition/wallToAbout";
 import WallToWorks from "../component/transition/wallToWorks";
@@ -10,6 +11,7 @@ import {
   useGlobalDispatchContext,
   useGlobalStateContext,
 } from "../context/globalContext";
+import { homeDescription } from "../data/data-seo";
 import { HomeContainer, HomeWrapper } from "../styles/homeStyles";
 import Layout from "./../component/layout";
 
@@ -77,6 +79,7 @@ const IndexPage = () => {
 
   return (
     <>
+        <SEO title="Home" description={homeDescription} pic={0}/>
         <Layout>
           <WallToWorks />
           <WallToAbout />

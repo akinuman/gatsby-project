@@ -19,16 +19,16 @@ export default function TextInfo({ aboutInfoText }) {
       </>
       <p>
         {p[0]}{" "}
-        <span role="img" aria-label="computer game" style={{ fontSize: "4vw" }}>
+        <span role="img" aria-label="computer game" style={{ fontSize: "2.5vw" }}>
           🕹️
         </span>
         {p[1]}{" "}
-        <span role="img" aria-label="books" style={{ fontSize: "4vw" }}>
+        <span role="img" aria-label="books" style={{ fontSize: "2.5vw" }}>
           📚
         </span>
         {p[2]}{" "}
-        <span role="img" aria-label="beach" style={{ fontSize: "4vw" }}>
-          🏖️
+        <span role="img" aria-label="contact" style={{ fontSize: "2.5vw" }}>
+          
         </span>
       </p>
     </div>

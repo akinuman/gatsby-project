@@ -1,7 +1,6 @@
 import gsap from "gsap"
 
 export const homeEnter = (node, e, exit, entry) => {
-    const logo = node.querySelector("Logo")
     
     const videoWrap = node.querySelector(".wrapper-img")
     const socials = node.querySelectorAll(".social-item-link svg")

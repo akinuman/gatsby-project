@@ -1,6 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "My Gatsby Site",
+    title: "Portfolio Website",
+    description: "I'm Frontend Developer",
+    url: "https://akinuman.tk",
+    image: "./src/images/uman.png",
+    twitterUsername: "@AkinUman",
+    author: "akinUman"
   },
   plugins: [
     "gatsby-plugin-styled-components",

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, Suspense } from "react";
 import gsap from "gsap";
-import * as THREE from 'three'
 import Blobs from "../component/about/blobs";
 import { Canvas } from "@react-three/fiber";
 import FloatTitle from "../component/about/floatTitle";
@@ -14,50 +13,52 @@ import WallToWorks from "../component/transition/wallToWorks";
 import { aboutText } from "../data/text-data";
 import { AboutWrapper, GraphicWrapper } from "./../styles/aboutStyles";
 import { Html } from "@react-three/drei";
-import Loader from "./../component/loader"
+import Loader from "./../component/loader";
 import AnimationModel from "../component/about/animationModel";
-import Model from "../component/about/scene.js";
+import { aboutDescription } from "../data/data-seo";
+import SEO from "../component/seo";
 
 const Fallback = () => (
   <Html>
     <div>
-      <Loader color="white" marginTop />
+      <Loader color="white" />
     </div>
   </Html>
-)
+);
 
 const AboutMe = () => {
   const aboutWrapper = useRef(null);
-  const panthomWrapper = useRef(null) 
+  const panthomWrapper = useRef(null);
   const { aboutInfo, linkPdf } = aboutText;
 
-  const onScrollContact = _ => {
-    const loadBar = document.querySelector(".load-bar")
-    const winScroll = document.documentElement.scrollTop
-    const viewportHeight = document.documentElement.clientHeight
-    const scrollHeight = document.documentElement.scrollHeight
-    const restScroll = scrollHeight - viewportHeight
-    const percent = (winScroll / restScroll) * 100
+  const onScrollContact = (_) => {
+    const loadBar = document.querySelector(".load-bar");
+    const winScroll = document.documentElement.scrollTop;
+    const viewportHeight = document.documentElement.clientHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const restScroll = scrollHeight - viewportHeight;
+    const percent = (winScroll / restScroll) * 100;
     gsap.to(loadBar, {
       duration: 1,
       width: `${percent}%`,
       ease: "circ.out",
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    aboutEnter(aboutWrapper.current)
-    document.addEventListener("scroll", onScrollContact)
-    window.addEventListener("resize", onScrollContact)
+    aboutEnter(aboutWrapper.current);
+    document.addEventListener("scroll", onScrollContact);
+    window.addEventListener("resize", onScrollContact);
 
     return () => {
-      document.removeEventListener("scroll", onScrollContact)
-      window.removeEventListener("resize", onScrollContact)
-    }
-  }, [])
+      document.removeEventListener("scroll", onScrollContact);
+      window.removeEventListener("resize", onScrollContact);
+    };
+  }, []);
 
   return (
-    <>
+    <>  
+      <SEO title="About" description={aboutDescription} pic={2}/>
       <Layout>
         <WallToWorks />
         <WallToHome />
@@ -72,16 +73,16 @@ const AboutMe = () => {
             <TextInfo aboutInfoText={aboutInfo} />
             <LinkPDF linkPdfText={linkPdf} />
             <Canvas
-            className="canvas-content"
-            shadowMap
-            camera={{ position: [0, 0, 10], fov: 30, near: 1, far: 200 }}
-            style={{ height: "100%", width: "100%" }}
-          >
-            <fog attach="fog" args={["black", 1, 200]} />
-            <Suspense fallback={Fallback}>
-              <Model/>
-            </Suspense>
-          </Canvas>
+              dpr={1.25}
+              gl={{ antialias: false }}
+              camera={{ position: [0, 0, 0.8], fov: 60, near: 0.5, far: 2.25 }}
+              className="canvas-content"
+            >
+              <Suspense fallback={<Fallback />}>
+                <AnimationModel position={[0, -1.4, 0]}/>
+              </Suspense>
+              <fog attach="fog" args={["#070710", 0, 2]} />
+            </Canvas>
           </GraphicWrapper>
           <div className="panthom-wrapper" ref={panthomWrapper}>
             <div className="scroll-panthom sp-1"></div>
