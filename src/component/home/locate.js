@@ -106,7 +106,7 @@ export default function Locate() {
           <div className="item-envolt">
             <p className="item-content">
               <FaPhoneAlt />
-              <span className="to-copy">(90) 543 280-9752</span>
+              <span className="to-copy">(+90) 543 280-9752</span>
             </p>
             <p className="clipboard">
               <span>tap to copy</span>

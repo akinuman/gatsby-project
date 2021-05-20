@@ -8,7 +8,7 @@ const normalMaterial = new THREE.MeshNormalMaterial();
 
 export function Fragments({ visible, ...props }) {
   const group = useRef();
-  const { scene, animations, materials } = useGLTF("/hello-fragments.glb");
+  const { scene, animations, materials } = useGLTF("/hello-fragments.glb")
   const { actions } = useAnimations(animations, group);
   useMemo(
     () =>

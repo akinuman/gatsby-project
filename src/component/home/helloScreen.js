@@ -41,7 +41,7 @@ const HelloScreen = () => {
       />
       <Suspense fallback={null}>
         <Scene />
-        <Preload all />
+      {/* <Preload all /> */}
       </Suspense>
     </Canvas>
   )
