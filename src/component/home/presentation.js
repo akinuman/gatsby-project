@@ -11,6 +11,8 @@ const word3 = "KIN";
 const word4 = "CODER";
 const word5 = "DESIGNER";
 
+
+
 const Presentation = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const containerRef = useRef(null);
@@ -52,6 +54,7 @@ const Presentation = () => {
       ease: "expo.out",
     });
   };
+  
   
 
   useEffect(() => {
