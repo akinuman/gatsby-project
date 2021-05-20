@@ -1,5 +1,4 @@
 import React from "react"
-import myPdf from "/public/resume.pdf"
 
 
 export default function LinkPDF({ linkPdfText }) {
@@ -14,7 +13,7 @@ export default function LinkPDF({ linkPdfText }) {
                 className="link-pdf"
                 aria-label="Curriculum Vitae"
                 rel="noreferrer"
-                href={myPdf}
+                href="/resume.pdf"
                 download="resume.pdf"
                 
               >
