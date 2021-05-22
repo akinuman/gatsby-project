@@ -8,7 +8,7 @@ export const homeEnter = (node, e, exit, entry) => {
     tl.to(
       videoWrap,
       {
-        duration: 1.5,
+        duration: 2.5,
         delay: 0.5,
         x: "15%",
         y: "20%",
@@ -20,7 +20,7 @@ export const homeEnter = (node, e, exit, entry) => {
     tl.to(
       [...socials],
       {
-        duration: 1,
+        duration: 2.5,
         y: 0,
         opacity: 1,
         stagger: 0.3,

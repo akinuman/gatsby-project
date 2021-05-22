@@ -77,6 +77,7 @@ export default function Slogan() {
   }, []);
   return (
     <SloganWrapper>
+      {console.log("slogannnnnn")}
       <div className="home-design-content">
         <h2 className="stroke">
           <p className="stroke-text1">INSPIRED BY</p>

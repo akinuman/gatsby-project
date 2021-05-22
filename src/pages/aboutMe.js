@@ -17,6 +17,7 @@ import Loader from "./../component/loader";
 import AnimationModel from "../component/about/animationModel";
 import { aboutDescription } from "../data/data-seo";
 import SEO from "../component/seo";
+import { useGlobalDispatchContext } from "../context/globalContext";
 
 const Fallback = () => (
   <Html>
@@ -27,9 +28,18 @@ const Fallback = () => (
 );
 
 const AboutMe = () => {
+  
   const aboutWrapper = useRef(null);
   const panthomWrapper = useRef(null);
   const { aboutInfo, linkPdf } = aboutText;
+  const globalDispatch = useGlobalDispatchContext()
+
+  const pageChanger = (str) => {
+    globalDispatch({
+      type: "CURRENT_PAGE",
+      payload: "about",
+    });
+  };
 
   const onScrollContact = (_) => {
     const loadBar = document.querySelector(".load-bar");
@@ -44,8 +54,9 @@ const AboutMe = () => {
       ease: "circ.out",
     });
   };
-
+  
   useEffect(() => {
+    pageChanger()
     aboutEnter(aboutWrapper.current);
     document.addEventListener("scroll", onScrollContact);
     window.addEventListener("resize", onScrollContact);

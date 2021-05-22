@@ -165,6 +165,7 @@ export default function Biography({ onCursor }) {
       onMouseMove={handleRobotFace}
       onMouseLeave={leaveRobotFace}
     >
+      {console.log("biography")}
       <div className="ticker-loop">
         <div className="ticker-word tw2">
           <h2 className="word-anim wanim-2">

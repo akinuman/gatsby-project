@@ -7,8 +7,9 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 const normalMaterial = new THREE.MeshNormalMaterial();
 
 export function Fragments({ visible, ...props }) {
+  console.log("fragment")
   const group = useRef();
-  const { scene, animations, materials } = useGLTF("./../../assets/hello-fragments.glb")
+  const { scene, animations, materials } = useGLTF("/hello-fragments.glb");
   const { actions } = useAnimations(animations, group);
   useMemo(
     () =>
@@ -32,9 +33,10 @@ export function Fragments({ visible, ...props }) {
 }
 
 export function Model(props) {
-  const { scene } = useGLTF("./../../assets/hello-text.glb");
+  console.log("tecxttttt")
+  const { scene } = useGLTF("/hello-text.glb");
   return <primitive object={scene} {...props} />;
 }
 
-useGLTF.preload("./../../assets/hello-text.glb");
-useGLTF.preload("./../../assets/hello-fragments.glb");
+useGLTF.preload("/hello-text.glb");
+useGLTF.preload("/hello-fragments.glb");
