@@ -26,7 +26,6 @@ function SEO({ lang, meta, title, description, pic }) {
   const ogimage = getImage(img)
 
   const metaDescription = description || site.siteMetadata.description
-      console.log(ogimage)
   return (
     <Helmet
       title={title}

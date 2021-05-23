@@ -13,7 +13,6 @@ export default function WorksChoise({ onCursor, pages }) {
   const { currentSlide, buttonBlocked } = useWorksStateContext()
 
   const handlerChoise = e => {
-      console.log("akın")
     workDispatch({
       type: "BLOCK_BUTTON",
       payload: true,

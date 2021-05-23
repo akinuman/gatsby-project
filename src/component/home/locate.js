@@ -17,6 +17,7 @@ export default function Locate() {
   }
 
   const copyText = e => {
+    clickBoard(e)
     const select = e.currentTarget.getAttribute("data-locate")
     const textArea = document.createElement("textarea")
     textArea.value = select
@@ -34,10 +35,20 @@ export default function Locate() {
     const clipboard = e.currentTarget.querySelector(".clipboard")
     gsap.to(clipboard, {
       duration: 0.8,
-      top: "-101%",
+      top: "-100%",
       ease: "power4.out",
       overwrite: true,
     })
+  }
+
+  const clickBoard = e => {
+    const clipboard = e.currentTarget.querySelector(".clipboard")
+    gsap.from(clipboard, {
+      duration: 3,
+      background: "red",
+      ease: "power1.out"
+    }
+    )
   }
 
   const disAppearInfo = e => {
@@ -45,6 +56,7 @@ export default function Locate() {
     gsap.to(clipboard, {
       duration: 0.8,
       top: "100%",
+      background: "#fff",
       ease: "power4.out",
       overwrite: true,
     })

@@ -75,7 +75,6 @@ const IndexPage = () => {
     const style = cursorStyles[`${entry}`].style
     globalDispatch({ type: "CURSOR_TYPE", payload: style })
   }
-  console.log("akın")
 
 
   return (

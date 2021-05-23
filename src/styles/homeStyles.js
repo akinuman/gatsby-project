@@ -808,6 +808,7 @@ export const LocateWrapper = styled.div`
     color: rgba(255, 255, 255, 1);
     mix-blend-mode: normal;
     .locate-wrapper-item {
+      cursor: pointer;
       position: relative;
       margin: 5px 0;
       letter-spacing: 0.2px;

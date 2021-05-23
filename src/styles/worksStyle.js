@@ -262,9 +262,8 @@ export const ContentInfo = styled.div`
     display: flex;
     align-items: center;
     margin: 0px 20% 0 35%;
-    cursor: pointer;
 
-    b {
+    .lang-div {
       display: block;
       width: 100%;
       overflow: hidden;

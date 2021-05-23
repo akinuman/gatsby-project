@@ -35,7 +35,7 @@ const { mainDes, seconDes, developedIn } = particular[`${slug}`]
         </div>
         <InfoDescriptions description={mainDes} />
         <div className="language-info">
-          <b
+          <div className="lang-div"
           >
             <span className="language click-anim  ud-p1">
               <span
@@ -55,7 +55,7 @@ const { mainDes, seconDes, developedIn } = particular[`${slug}`]
                 👈🏻
               </span>
             </span>
-          </b>
+          </div>
         </div>
         <InfoDescriptions description={seconDes} />
       </div>
