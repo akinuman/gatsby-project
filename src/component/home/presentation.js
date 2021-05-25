@@ -204,4 +204,4 @@ const Presentation = () => {
   );
 };
 
-export default Presentation;
+export default React.memo(Presentation);

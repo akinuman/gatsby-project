@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const toggle = true;
 
-export default function Contact() {
+function Contact() {
   const scrollActive = useRef(null);
   const showInfo = (_) => {
     const items = document.querySelectorAll(".item-envolt");
@@ -69,3 +69,4 @@ export default function Contact() {
     </ContactWrapper>
   );
 }
+export default React.memo(Contact);

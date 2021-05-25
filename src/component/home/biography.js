@@ -14,7 +14,7 @@ const hShort = 650;
 const biographyText = biography;
 const toggle = true;
 
-export default function Biography({ onCursor }) {
+function Biography({ onCursor }) {
   const scrollPhoto = useRef(null);
   const biographyWrap = useRef(null);
   const photo_Head = useRef(null);
@@ -250,3 +250,6 @@ export default function Biography({ onCursor }) {
     </BiographyWrapper>
   );
 }
+
+
+export default React.memo(Biography);

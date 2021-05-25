@@ -23,10 +23,7 @@ import {
   appearPointLight,
   disAppearPointLight,
 } from "./../../tl/modelScroll.js";
-//Assets Model
-//import ironModel from "./../../assets/models/iron/source/iron.glb";
-//Helpers
-//import selectPath from "./../../helpers/selectPath";
+
 import { useGLTF } from "@react-three/drei";
 
 import { useFrame } from "@react-three/fiber";
@@ -52,10 +49,7 @@ function YBot() {
     return t;
   });
   const { nodes, materials } = useGLTF("/robot-draco.glb");
-  // useFrame((state) => {
-  //   //ref.current.position.z -= 0.001
-  //   ref.current.rotation.y = (Math.sin(state.clock.getElapsedTime()) * Math.PI) / 4;
-  // });
+  
   return (
     <group ref={ref} dispose={null}>
       <mesh geometry={nodes.Alpha_Surface.geometry}>
@@ -166,8 +160,8 @@ const AnimationModel = (props) => {
   useFrame(({ mouse }) => {
     desk.current.rotation.y = lerp(
       desk.current.rotation.y,
-      mouse.x * (Math.PI / 10),
-      0.02
+      mouse.x * (Math.PI / 6),
+      0.04
     );
   });
 
