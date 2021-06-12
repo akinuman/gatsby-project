@@ -16,10 +16,6 @@ import { HomeContainer, HomeWrapper } from "../styles/homeStyles";
 import Layout from "./../component/layout";
 
 const IndexPage = () => {
-
-  const { cursorStyles } = useGlobalStateContext();
-  const globalDispatch = useGlobalDispatchContext()
-
   const homeContainer = useRef(null);
   const requestRef = useRef(null);
   const dataScroll = useRef({
@@ -53,10 +49,9 @@ const IndexPage = () => {
   const onResize = (_) => {
     setBodyHeight();
   };
-  
+
   //Effects Hooks
   useEffect(() => {
-    
     window.scrollTo(0, 0);
     homeEnter(homeContainer.current);
     setBodyHeight();
@@ -71,27 +66,21 @@ const IndexPage = () => {
     //eslint-disable-next-line
   }, []);
 
-  const onCursor = (entry = "hover") => {
-    const style = cursorStyles[`${entry}`].style
-    globalDispatch({ type: "CURSOR_TYPE", payload: style })
-  }
-
-
   return (
     <>
-        <SEO title="Home" description={homeDescription} pic={0}/>
-        <Layout>
-          <WallToWorks />
-          <WallToAbout />
-          <HomeWrapper className="globalContainer">
-            <HomeContainer className="home-container" ref={homeContainer}>
-              <Presentation />
-              <Slogan />
-              <Biography onCursor={onCursor} />
-              <Contact />
-            </HomeContainer>
-          </HomeWrapper>
-        </Layout>
+      <SEO title="Home" description={homeDescription} pic={0} />
+      <Layout>
+        <WallToWorks />
+        <WallToAbout />
+        <HomeWrapper className="globalContainer">
+          <HomeContainer className="home-container" ref={homeContainer}>
+            <Presentation />
+            <Slogan />
+            <Biography />
+            <Contact />
+          </HomeContainer>
+        </HomeWrapper>
+      </Layout>
     </>
   );
 };

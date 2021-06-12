@@ -43,7 +43,7 @@ export const aboutText = {
       "Osmangazi University",
     ],
     p: [
-      "1.5 year ago I've made the decision to teach myself coding and as I learnt and developed now I know it was the best decision I've ever made.",
+      "I've made the decision to teach myself coding and as I learnt and developed now I know it was the best decision I've ever made.",
       "I love interactive computer graphics and everything related to animations,  I try to learn every animation framework as possible, this became my passion.",
       "Also I am very curious about the math behind animations. If you have any questions about my journey, need help with your journey or for business inquiries you can always contact me.",
     ],

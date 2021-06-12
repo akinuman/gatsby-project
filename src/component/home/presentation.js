@@ -14,24 +14,35 @@ const word5 = "DESIGNER";
 
 
 const Presentation = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
   const containerRef = useRef(null);
   const firstBlock = useRef(null);
   const firstBlock1 = useRef(null);
   const firstBlock2 = useRef(null);
   const titleName = useRef(null);
   
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    if (window.innerWidth < 800) {
-      setScrollPosition(position / 2);
-    } else {
-      setScrollPosition(position);
-    }
-  };
+  
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
+    // const handleScroll = () => {
+    //   const position = window.pageYOffset;
+    //   if(position < 1000) {
+    //     if (window.innerWidth < 800) {
+    //       setScrollPosition(position / 2);
+    //     } else {
+    //       setScrollPosition(position);
+    //     }
+    //   }
+    // };
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      if(position < 1000) {
+        if (window.innerWidth < 800) {
+          scrollGetter(position / 2);
+        } else {
+          scrollGetter(position);
+        }
+      }
+    };
+      window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -78,7 +89,70 @@ const Presentation = () => {
   }, []);
   
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   const wi = window.innerWidth;
+  //   var withTheProgress = gsap.utils.mapRange(
+  //     wi > 600 ? 0 : 0,
+  //     wi > 600 ? 50 : 0,
+  //     0,
+  //     1
+  //   );
+  //   var withTheProgress2 = gsap.utils.mapRange(
+  //     wi > 600 ? 100 : 40,
+  //     wi > 600 ? 150 : 80,
+  //     0,
+  //     1
+  //   );
+  //   if (window.innerWidth > 600) {
+  //     if (scrollPosition > 80) {
+  //       gsap.set(firstBlock1.current, {
+  //         opacity: 0,
+  //       });
+  //     } else {
+  //       gsap.set(firstBlock1.current, {
+  //         opacity: 1,
+  //       });
+  //     }
+  //   }
+  //   if (scrollPosition < 85 && window.innerWidth < 800) {
+  //     gsap.set(firstBlock.current, {
+  //       translateY: -scrollPosition + 7,
+  //     });
+  //     gsap.set(firstBlock1.current, {
+  //       translateY: -scrollPosition,
+  //       opacity: withTheProgress(scrollPosition),
+  //     });
+  //     gsap.set(firstBlock2.current, {
+  //       translateY: -scrollPosition,
+  //       opacity: withTheProgress2(scrollPosition),
+  //     });
+  //   }
+  //   if (scrollPosition < 182 && window.innerWidth > 800) {
+  //     gsap.set(firstBlock.current, {
+  //       translateY: -scrollPosition + 5,
+  //     });
+  //     gsap.set(firstBlock1.current, {
+  //       translateY: -scrollPosition,
+  //       opacity: withTheProgress(scrollPosition),
+  //     });
+  //     gsap.set(firstBlock2.current, {
+  //       translateY: -scrollPosition,
+  //       opacity: withTheProgress2(scrollPosition),
+  //     });
+  //   }
+  //   if (scrollPosition > 60) {
+  //     gsap.set(firstBlock.current, {
+  //       opacity: 0,
+  //     });
+  //   } else {
+  //     gsap.set(firstBlock.current, {
+  //       opacity: 1,
+  //     });
+  //   }
+    
+  // }, [scrollPosition]);
+  
+  function scrollGetter(scrollPosition) {
     const wi = window.innerWidth;
     var withTheProgress = gsap.utils.mapRange(
       wi > 600 ? 0 : 0,
@@ -138,7 +212,7 @@ const Presentation = () => {
         opacity: 1,
       });
     }
-  }, [scrollPosition]);
+  }
 
   return (
     <>

@@ -14,7 +14,7 @@ const hShort = 650;
 const biographyText = biography;
 const toggle = true;
 
-function Biography({ onCursor }) {
+function Biography() {
   const scrollPhoto = useRef(null);
   const biographyWrap = useRef(null);
   const photo_Head = useRef(null);
@@ -206,11 +206,9 @@ function Biography({ onCursor }) {
         <div
           role="presentation"
           onMouseEnter={(_) => {
-            onCursor("pointer");
             hiddenRobotFace();
           }}
           onMouseLeave={(_) => {
-            onCursor();
             showRobotFace();
           }}>
           <p>
