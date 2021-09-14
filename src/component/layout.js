@@ -11,11 +11,6 @@ const GLobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
   html {
     box-sizing: boder-box;
     -webkit-font-smoothing: antialiased;
@@ -23,10 +18,9 @@ const GLobalStyle = createGlobalStyle`
   }
 
   body {
-    margin: 0;
+    margin: 0px;
     font-size: 1.6rem;
     height: 100%;
-
     main {
       background-color: #fff;
     }
